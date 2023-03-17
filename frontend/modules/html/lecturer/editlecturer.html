@@ -89,7 +89,7 @@
               <a class="collapse-item" href="../../html/faculty/faculty.html"
                 >Faculties</a
               >
-              <a class="collapse-item" href="#">Departments</a>
+              <a class="collapse-item" href="../../html/department/department.html">Departments</a>
               <a
                 class="collapse-item"
                 href="../../html/courseOfStudy/courseOfStudy.html"
@@ -98,7 +98,7 @@
               <a class="collapse-item" href="../../html/courses/course.html"
                 >Courses</a
               >
-              <a class="collapse-item" href="../../html/lecturer/lecturer.html"
+              <a class="collapse-item" href="#"
                 >Lecturers</a
               >
             </div>
@@ -204,64 +204,71 @@
         <h3 class="text-center title">Edit Your Department Details</h3>
         <!-- EDITING FORM START  -->
         <form id="editingForm" class="editing_form container">
-          <div class="form-group">
-            <label for="departmentIdInput">Department ID</label>
+            <div class="form-group">
+            <label for="Surname"> LecturerId</label>
             <input
-              type="text"
+              type="number"
               class="form-control"
-              name="DepartmentId"
+              name="LecturerId"
               disabled="true"
-              id="departmentIdInput"
-              placeholder=""
+              id="lecturerIdInput"
+              placeholder="e.g.  of Art"
             />
           </div>
           <div class="form-group">
-            <label for="facultyIdInput">Faculty ID</label>
-            <input
-              type="text"
-              class="form-control"
-              name="FacultyId"
-              id="facultyIdInput"
-              placeholder=""
-            />
-          </div>
-          <div class="form-group">
-            <label for="nameInput">Name</label>
-            <input
-              type="text"
-              class="form-control"
-              name="Name"
-              value=""
-              id="nameInput"
-              placeholder=""
-            />
-          </div>
-          <div class="form-group">
-            <label for="uniqueIdInput">Unique ID</label>
-            <input
-              type="text"
-              name="UniqueId"
-              class="form-control"
-              id="uniqueIdInput"
-              placeholder=""
-            />
-          </div>
-          <div class="form-group">
-            <label for="codeInput">Code</label>
-            <input
-              type="text"
-              class="form-control"
-              name="Code"
-              id="codeInput"
-              placeholder="Enter code"
-            />
-          </div>
-          <div class="form-group">
-            <label for="statusInput">Status</label>
-            <select class="form-control" id="statusInput">
-              <option value="1">Active</option>
-              <option value="-1">Inactive</option>
+            <label for="lecturerName">Department ID</label>
+            <select name="DepartmentId" id="departmentIdInput">
+              <!-- <option value="pick me">Pick</option> -->
             </select>
+          </div>
+          <div class="form-group">
+            <label for="Surname"> SurName</label>
+            <input
+              type="text"
+              class="form-control"
+              name="Surname"
+              id="surNameInput"
+              placeholder="e.g.  of Art"
+            />
+          </div>
+          <div class="form-group">
+            <label for="firstName"> First Name</label>
+            <input
+              type="text"
+              class="form-control"
+              name="FirstName"
+              id="firstNameInput"
+              placeholder="e.g.  of Art"
+            />
+          </div>
+          <div class="form-group">
+            <label for="OtherName"> Other Name</label>
+            <input
+              type="text"
+              class="form-control"
+              name="OtherName"
+              id="otherNameInput"
+              placeholder="e.g.  of Art"
+            />
+          </div>
+          <div class="form-group">
+            <label for="StaffId">StaffId</label>
+            <input
+              type="number"
+              class="form-control"
+              name="StaffId"
+              id="staffIdInput"
+              placeholder=" e.g. 04"
+            />
+          </div>
+          <div class="form-group">
+            <div class="form-check">
+              <label class="form-check-label" for="status"> active </label>
+              <select name="Status" id="statusInput">
+                <option value="1">Active</option>
+                <option value="0">InActive</option>
+              </select>
+            </div>
           </div>
           <button type="submit" class="btn btn-primary">Submit</button>
         </form>
@@ -284,7 +291,7 @@
       <script src="../../js/Validate.js"></script>
 
       <!-- script  for details -->
-      <script src="../../js/department/edits.js"></script>
+      <script src="../../js/lecturer/edit.js"></script>
       <!-- </div> -->
     </div>
   </body>

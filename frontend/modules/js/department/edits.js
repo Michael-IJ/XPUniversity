@@ -50,7 +50,7 @@ editingForm.addEventListener("submit", (e) => {
   // OBEJCT TO SEND TO DB
   const submitForm = {
     DepartmentId: Number(departmentIdInput.value),
-    FacultyIdInput: Number(facultyIdInput.value),
+    FacultyId: Number(facultyIdInput.value),
     Name: nameInput.value,
     UniqueId: uniqueIdInput.value,
     Code: codeInput.value,

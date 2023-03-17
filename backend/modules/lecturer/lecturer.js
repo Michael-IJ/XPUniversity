@@ -42,10 +42,10 @@ class Lecturer{
             if(!await db.addLecturer(lecturer)){
                 return res.status(400).json({ Error: db.getError() })
             } 
-            res.status(200).json({ IsSuccessFul: true})
+            return res.status(200).json({ IsSuccessFul: true})
         } catch(error){
-            res.status(400).json({ Error: error});
             console.log(error);
+            return res.status(400).json({ Error: error});
         }
     }
     //GET EACH LECTURER

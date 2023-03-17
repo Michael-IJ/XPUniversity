@@ -19,7 +19,7 @@ const facult = async () => {
         <td>${faculty.Status == 1 ? '<div class="text-success">Active</div>' : '<div class="text-danger">Inactive<div>'}</td>
         <td>
           <a href="../../html/faculty/editfaculty.html?id=${faculty.FacultyId}" class="btn btn-primary">Edit</a>
-          <button class="btn btn-danger"  onclick="deletefaculty(${faculty.FacultyId})">Delete</button>
+          <button class="btn btn-danger"  onClick="deletefaculty(${faculty.FacultyId})">Delete</button>
           <a href="../../html/faculty/detailfaculty.html?id=${faculty.FacultyId}" class="btn btn-success">Details</a>
       `;
       table.appendChild(row);

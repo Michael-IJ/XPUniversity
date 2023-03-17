@@ -6,27 +6,37 @@ const lecture = async () => {
     const response = await axios.get("http://localhost:8097/api/v1/lecturers");
     const data = response.data;
 
+    const res = await axios.get("http://localhost:8097/api/v1/departments");
+    const allData = res.data;
+    console.log(allData);
+    const departmentSelect = document.querySelector("#departmentId");
+    console.log(departmentSelect);
+    let godAbeg = allData.map((item, index) => {
+      return `<option value="${item.DepartmentId}">${item.Name}</option>`;
+    });
+    let yeag = '<option value="0">---Please Select---</option>';
+    departmentSelect.innerHTML = yeag + godAbeg.join("");
+
     data.forEach((lecturer, id) => {
       const row = document.createElement("tr");
       row.innerHTML = `
         <td>${id + 1}</td>
-        <td>${lecturer.SurName}</td>
+        <td>${lecturer.Surname}</td>
         <td>${lecturer.StaffId}</td>
-        <td>${lecturer.Code}</td>
         <td>${
           lecturer.Status == 1
             ? '<div class="text-success">Active</div>'
             : '<div class="text-danger">Inactive<div>'
         }</td>
         <td>
-          <a href="../../html/lecturer/editLecturer.html?id=${
-           lecturer.LecturerId
+          <a href="../../html/lecturer/editlecturer.html?id=${
+            lecturer.LecturerId
           }" class="btn btn-primary">Edit</a>
-          <button class="btn btn-danger"  onclick="deletelecturer(${
-           lecturer.LecturerId
+          <button class="btn btn-danger"  onClick="deletelecturer(${
+            lecturer.LecturerId
           })">Delete</button>
-          <a href="../../html/lecturer/detailLecturer.html?id=${
-           lecturer.LecturerId
+          <a href="../../html/lecturer/detailslecturer.html?id=${
+            lecturer.LecturerId
           }" class="btn btn-success">Details</a>
       `;
       table.appendChild(row);
@@ -38,9 +48,9 @@ const lecture = async () => {
 
 document.addEventListener("DOMContentLoaded", lecture);
 
-function deletefaculty(id) {
+function deletelecturer(id) {
   axios
-    .delete("http://localhost:8097/api/v1/faculties/" + id)
+    .delete("http://localhost:8097/api/v1/lecturers/" + id)
     .then((res) => {
       window.location.reload();
     })
@@ -49,30 +59,33 @@ function deletefaculty(id) {
     });
 }
 
-addAllForm.addEventListener("submit", (e) => {
+addForms.addEventListener("submit", (e) => {
   e.preventDefault();
-  const ALLData = new FormData(addAllForm);
-  const info = Object.fromEntries(ALLData.entries());
+  const formData = new FormData(addForms);
+  const info = Object.fromEntries(formData.entries());
   // validate checkbox
   if (info.Status) {
     info.Status = 1;
   } else {
     info.Status = 0;
   }
+
   console.log(info);
 
   const validate = new Validate();
-  validate.length(info.Name, 3, 50, "Name");
-  validate.length(info.UniqueId, 3, 10, "UniqueId");
-  validate.length(info.Code, 3, 10, "Code");
+  validate.min_length(info.DepartmentId, 1, "DepartmentId");
+  validate.length(info.Surname, 3, 50, "Surname");
+  validate.length(info.FirstName, 3, 50, "FirstName");
+  validate.length(info.OtherName, 3, 50, "OtherName");
+  validate.min_length(info.StaffId, 1, "StaffId");
 
   if (validate.errors.length > 0) {
-    console.log(validate.errors[0]);
+    alert(validate.errors[0]);
     return;
   } else {
     console.log("not working");
     axios
-      .post("http://localhost:8097/api/v1/faculties/add", info)
+      .post("http://localhost:8097/api/v1/lecturers/add", info)
       .then((response) => {
         window.location.reload();
       })

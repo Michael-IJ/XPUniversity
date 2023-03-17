@@ -27,8 +27,6 @@
     <link href="../../../Assets/css/sb-admin-2.min.css" rel="stylesheet" />
   </head>
 
-  <!-- style css -->
-  <link rel="stylesheet" href="../../css/departments/edit.css" />
   <body id="page-top">
     <!-- Page Wrapper -->
     <div id="wrapper">
@@ -89,7 +87,11 @@
               <a class="collapse-item" href="../../html/faculty/faculty.html"
                 >Faculties</a
               >
-              <a class="collapse-item" href="#">Departments</a>
+              <a
+                class="collapse-item"
+                href="../../html/department/department.html"
+                >Departments</a
+              >
               <a
                 class="collapse-item"
                 href="../../html/courseOfStudy/courseOfStudy.html"
@@ -98,9 +100,7 @@
               <a class="collapse-item" href="../../html/courses/course.html"
                 >Courses</a
               >
-              <a class="collapse-item" href="../../html/lecturer/lecturer.html"
-                >Lecturers</a
-              >
+              <a class="collapse-item" href="#">Lecturers</a>
             </div>
           </div>
         </li>
@@ -199,93 +199,105 @@
       <!-- end of sidebar -->
 
       <!-- form for details -->
-      <div id="content-wrapper" class="d-flex flex-column pt-3 container-fluid">
-        <!-- <div class="errMsg" id="errMsg"></div> -->
-        <h3 class="text-center title">Edit Your Department Details</h3>
+      <div id="content-wrapper" class="d-flex flex-column pt-3">
+        <h3 class="text-center title">All Lecturer Details</h3>
         <!-- EDITING FORM START  -->
-        <form id="editingForm" class="editing_form container">
+        <form id="editingForm" class="editing_form">
           <div class="form-group">
-            <label for="departmentIdInput">Department ID</label>
+            <label for="lecturerIdInput">Lecturer ID</label>
             <input
               type="text"
               class="form-control"
-              name="DepartmentId"
+              disabled="true"
+              id="lecturerIdInput"
+              name="LecturerId"
+              placeholder=""
+            />
+          </div>
+          <div class="form-group">
+            <label for="lecturerIdInput">Department ID</label>
+            <input
+              type="text"
+              class="form-control"
               disabled="true"
               id="departmentIdInput"
+              name="DepartmentId"
               placeholder=""
             />
           </div>
           <div class="form-group">
-            <label for="facultyIdInput">Faculty ID</label>
+            <label for="Surname"> SurName</label>
             <input
               type="text"
               class="form-control"
-              name="FacultyId"
-              id="facultyIdInput"
-              placeholder=""
+              name="Surname"
+              disabled="true"
+              id="surNameInput"
+              placeholder="e.g.  of Art"
             />
           </div>
           <div class="form-group">
-            <label for="nameInput">Name</label>
+            <label for="firstName"> First Name</label>
             <input
               type="text"
               class="form-control"
-              name="Name"
-              value=""
-              id="nameInput"
-              placeholder=""
+              name="FirstName"
+              disabled="true"
+              id="firstNameInput"
+              placeholder="e.g.  of Art"
             />
           </div>
           <div class="form-group">
-            <label for="uniqueIdInput">Unique ID</label>
-            <input
-              type="text"
-              name="UniqueId"
-              class="form-control"
-              id="uniqueIdInput"
-              placeholder=""
-            />
-          </div>
-          <div class="form-group">
-            <label for="codeInput">Code</label>
+            <label for="OtherName"> Other Name</label>
             <input
               type="text"
               class="form-control"
-              name="Code"
-              id="codeInput"
-              placeholder="Enter code"
+              name="OtherName"
+              disabled="true"
+              id="otherNameInput"
+              placeholder="e.g.  of Art"
             />
           </div>
           <div class="form-group">
-            <label for="statusInput">Status</label>
-            <select class="form-control" id="statusInput">
-              <option value="1">Active</option>
-              <option value="-1">Inactive</option>
-            </select>
+            <label for="StaffId">StaffId</label>
+            <input
+              type="number"
+              class="form-control"
+              name="StaffId"
+              disabled="true"
+              id="staffIdInput"
+              placeholder=" e.g. 04"
+            />
           </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <div class="form-group">
+            <div class="form-check">
+              <label class="form-check-label" for="status"> active </label>
+              <select name="Status" disabled="true" id="statusInput">
+                <option value="1">Active</option>
+                <option value="0">InActive</option>
+              </select>
+            </div>
+          </div>
+          <a href="./lecturer.html" class="btn btn-primary">Back</a>
         </form>
       </div>
-      <!-- end of form details -->
-
-      <!-- Bootstrap core JavaScript-->
-      <script src="../../../Assets/vendor/jquery/jquery.min.js"></script>
-      <script src="../../../Assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-      <!-- Core plugin JavaScript-->
-      <script src="../../../Assets/vendor/jquery-easing/jquery.easing.min.js"></script>
-
-      <!-- Custom scripts for all pages-->
-      <script src="../../../Assets/js/sb-admin-2.min.js"></script>
-
-      <!-- Get Axios library -->
-      <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-
-      <script src="../../js/Validate.js"></script>
-
-      <!-- script  for details -->
-      <script src="../../js/department/edits.js"></script>
-      <!-- </div> -->
     </div>
+    <!-- end of form details -->
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="../../../Assets/vendor/jquery/jquery.min.js"></script>
+    <script src="../../../Assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="../../../Assets/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="../../../Assets/js/sb-admin-2.min.js"></script>
+
+    <!-- Get Axios library -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <!-- script  for details -->
+    <script src="../../js/lecturer/details.js"></script>
   </body>
 </html>

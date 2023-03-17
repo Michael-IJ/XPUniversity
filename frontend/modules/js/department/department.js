@@ -15,6 +15,8 @@ const Dept = async () => {
     })
     let yeag = '<option value="0">---Please Select---</option>'
      facultySelect.innerHTML=yeag+godAbeg.join('')
+
+     
     data.forEach((departments, id) => {
       const row = document.createElement('tr');
       row.innerHTML = `
@@ -25,7 +27,7 @@ const Dept = async () => {
         <td>${departments.Status == 1 ? '<div class="text-success">Active</div>' : '<div class="text-danger">Inactive<div>'}</td>
         <td>
           <a href="../../html/department/edits.html?id=${departments.DepartmentId}" class="btn btn-primary">Edit</a>
-          <button class="btn btn-danger" onclick="deleteDepartment(${departments.DepartmentId})">Delete</button>
+          <button class="btn btn-danger" onClick="deleteDepartment(${departments.DepartmentId})">Delete</button>
           <a href="../../html/department/details.html?id=${departments.DepartmentId}" class="btn btn-success">Details</a>
 
         </td>
