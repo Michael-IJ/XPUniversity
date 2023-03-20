@@ -23,7 +23,7 @@ const getDepartmentById = async () => {
 
     facultyIdInput.value = data.FacultyId;
     nameInput.value  = data.Name;
-    uniqueIdInput.value  = data.UniqueId;;
+    uniqueIdInput.value  = data.UniqueId;
     codeInput.value  = data.Code;
     statusInput.value  = data.Status == 1 ? 'Active' : 'Inactive';
 } 

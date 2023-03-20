@@ -8,6 +8,19 @@ const facult = async () => {
     const data = response.data;
 
     
+    
+const searchModalForm = document.querySelector('#searchModalForm');
+const searchModal = document.getElementById("searchModal");
+const searchModalEvent = new MouseEvent('click', {
+  view: window,
+  bubbles: true,
+  cancelable: true
+});
+
+
+searchModalForm.addEventListener('submit', searchFacultyForm)
+
+
 
     data.forEach((faculty, id) => {
       const row = document.createElement('tr');
@@ -75,6 +88,71 @@ addAllForm.addEventListener('submit', (e) => {
 
 });
 
+const searchModalForm = document.querySelector("#searchModalForm");
+const searchModal = document.getElementById("searchModal");
+const searchModalEvent = new MouseEvent("click", {
+  view: window,
+  bubbles: true,
+  cancelable: true,
+});
+
+searchModalForm.addEventListener("submit", searchFacultyForm);
+
+async function searchFacultyForm(e) {
+  e.preventDefault();
+  table.innerHTML = null;
+
+  const formData = new FormData(searchModalForm);
+  const searchFormData = Object.fromEntries(formData.entries());
+  if (searchFormData.Status) {
+    searchFormData.Status = 1;
+  } else {
+    searchFormData.Status = 0;
+  }
+
+  //? WE HAVE OUR DATA TO SEARCH FOR NOW WE SEARCH IN OUR DATABASE
+  const fetchFilter = await axios.post(
+    "http://localhost:8097/api/v1/faculties/",
+    searchFormData
+  );
+  const resultFilter = await fetchFilter;
+  const filteredData = resultFilter.data;
+  searchModal.dispatchEvent(searchModalEvent);
+
+  if (filteredData.length < 1) {
+    setTimeout(() => {
+      alert("No Such Data Exist Please Change your filter");
+    }, 1000);
+  }
+
+  // filteredData.forEach((faculty, index) => {
+  //   const row = document.createElement("tr");
+  //   row.innerHTML = `
+  //     <td>${index + 1}</td>
+  //     <td>${faculty.Name}</td>
+  //     <td>${faculty.UniqueId}</td>
+  //     <td>${faculty.Code}</td>
+  //     <td>${
+  //       faculty.Status == 1
+  //         ? '<div class="text-success">Active</div>'
+  //         : '<div class="text-danger">Inactive<div>'
+  //     }</td>
+  //     <td>
+  //       <a href="../../html/faculty/editfaculty.html?id=${
+  //         faculty.FacultyId
+  //       }" class="btn btn-primary">Edit</a>
+  //       <button class="btn btn-danger"  onclick="deletefaculty(${
+  //         faculty.FacultyId
+  //       })">Delete</button>
+  //       <a href="../../html/faculty/detailfaculty.html?id=${
+  //         faculty.FacultyId
+  //       }" class="btn btn-success">Details</a>
+  //     </td>
+  //   `;
+  //   table.appendChild(row);
+
+  // });
+}
 
 
 

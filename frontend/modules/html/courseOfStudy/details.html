@@ -25,12 +25,10 @@
 
     <!-- Custom styles for this template-->
     <link href="../../../Assets/css/sb-admin-2.min.css" rel="stylesheet" />
-
-    <!-- css link -->
-    <link rel="stylesheet" href="../../css/lecturer/index.css">
-    
   </head>
 
+  <!-- style css -->
+  <link rel="stylesheet" href="../../css/courses/index.css" />
   <body id="page-top">
     <!-- Page Wrapper -->
     <div id="wrapper">
@@ -96,15 +94,13 @@
                 href="../../html/department/department.html"
                 >Departments</a
               >
-              <a
-                class="collapse-item"
-                href="../../html/courseOfStudy/courseOfStudy.html"
-                >Course of Studies</a
-              >
+              <a class="collapse-item" href="#">Course of Studies</a>
               <a class="collapse-item" href="../../html/courses/course.html"
                 >Courses</a
               >
-              <a class="collapse-item" href="#">Lecturers</a>
+              <a class="collapse-item" href="../../html/lecturer/lecturer.html"
+                >Lecturers</a
+              >
             </div>
           </div>
         </li>
@@ -203,105 +199,146 @@
       <!-- end of sidebar -->
 
       <!-- form for details -->
-      <div id="content-wrapper" class="d-flex flex-column pt-3">
-        <h3 class="text-center title">All Lecturer Details</h3>
+      <div id="content-wrapper" class="d-flex flex-column pt-3 container-fluid">
+        <!-- <div class="errMsg" id="errMsg"></div> -->
+        <h3 class="text-center title">All Of Your Details</h3>
         <!-- EDITING FORM START  -->
-        <form id="editingForm" class="editing_form">
+        <form id="editingForm" class="editing_form container">
           <div class="form-group">
-            <label for="lecturerIdInput">Lecturer ID</label>
+            <label for="courseId">Course Of Study Id</label>
             <input
               type="text"
               class="form-control"
+              name="CourseOfStudyId"
               disabled="true"
-              id="lecturerIdInput"
-              name="LecturerId"
-              placeholder=""
+              id="courseOfStudyId"
+              placeholder="e.g. 0123"
             />
           </div>
           <div class="form-group">
-            <label for="lecturerIdInput">Department ID</label>
-            <input
-              type="text"
-              class="form-control"
-              disabled="true"
-              id="departmentIdInput"
+            <label for="DepartmentId">Department Id</label>
+            <select
+              class="form-select"
+              aria-label="Default select example"
               name="DepartmentId"
-              placeholder=""
-            />
+              disabled="true"
+              id="departmentId"
+            ></select>
           </div>
           <div class="form-group">
-            <label for="Surname"> SurName</label>
+            <label for="courseName">Course Of Study Name</label>
             <input
               type="text"
               class="form-control"
-              name="Surname"
+              name="Name"
+              id="nameInput"
               disabled="true"
-              id="surNameInput"
-              placeholder="e.g.  of Art"
+              placeholder="e.g. Faculty of Art"
             />
           </div>
           <div class="form-group">
-            <label for="firstName"> First Name</label>
+            <label for="ShortName">Course Of Study ShortName</label>
             <input
               type="text"
               class="form-control"
-              name="FirstName"
+              name="ShortName"
+              id="shortName"
               disabled="true"
-              id="firstNameInput"
-              placeholder="e.g.  of Art"
+              placeholder="e.g. Faculty of Art"
             />
           </div>
           <div class="form-group">
-            <label for="OtherName"> Other Name</label>
+            <label for="uniqueId">Unique ID</label>
             <input
               type="text"
               class="form-control"
-              name="OtherName"
+              name="UniqueId"
               disabled="true"
-              id="otherNameInput"
-              placeholder="e.g.  of Art"
+              id="uniqueId"
+              placeholder="e.g g8yu8"
             />
           </div>
           <div class="form-group">
-            <label for="StaffId">StaffId</label>
+            <label for="award">Award</label>
+            <input
+              type="text"
+              class="form-control"
+              name="Award"
+              id="award"
+              disabled="true"
+              placeholder="e.g Award of sciences"
+            />
+          </div>
+          <div class="form-group">
+            <label for="duration">Duration</label>
             <input
               type="number"
               class="form-control"
-              name="StaffId"
+              name="Duration"
+              id="duration"
               disabled="true"
-              id="staffIdInput"
-              placeholder=" e.g. 04"
+              placeholder="e.g 02"
             />
           </div>
           <div class="form-group">
-            <div class="form-check">
-              <label class="form-check-label" for="status"> active </label>
-              <select name="Status" disabled="true" id="statusInput">
-                <option value="1">Active</option>
-                <option value="0">InActive</option>
-              </select>
-            </div>
+            <label for="requiredCreditUnit">Required Credit Unit</label>
+            <input
+              type="number"
+              class="form-control"
+              name="RequiredCreditUnit"
+              id="requiredCreditUnit"
+              disabled="true"
+              placeholder="e.g 012"
+            />
           </div>
-          <a href="./lecturer.html" class="btn btn-primary">Back</a>
+          <div class="form-group">
+            <label for="advisor">Advisor</label>
+            <input
+              type="text"
+              class="form-control"
+              name="Advisor"
+              disabled="true"
+              id="advisor"
+              placeholder="e.g professor MIchael"
+            />
+          </div>
+          <div class="form-group">
+            <label class="form-check-label" for="status"> active </label>
+            <select name="Status" id="statusInput" disabled="true">
+              <option value="1">Active</option>
+              <option value="-1">InActive</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary float-right">
+            Submit
+          </button>
+          <a
+            href="./courseOfStudy.html"
+            class="float-left btn-primary rounded p-2 mt-2"
+            >Back</a
+          >
         </form>
       </div>
+      <!-- end of form details -->
+
+      <!-- Bootstrap core JavaScript-->
+      <script src="../../../Assets/vendor/jquery/jquery.min.js"></script>
+      <script src="../../../Assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+      <!-- Core plugin JavaScript-->
+      <script src="../../../Assets/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+      <!-- Custom scripts for all pages-->
+      <script src="../../../Assets/js/sb-admin-2.min.js"></script>
+
+      <!-- Get Axios library -->
+      <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+      <script src="../../js/Validate.js"></script>
+
+      <!-- script  for details -->
+      <script src="../../js/courseOfStudy/details.js"></script>
+      <!-- </div> -->
     </div>
-    <!-- end of form details -->
-
-    <!-- Bootstrap core JavaScript-->
-    <script src="../../../Assets/vendor/jquery/jquery.min.js"></script>
-    <script src="../../../Assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Core plugin JavaScript-->
-    <script src="../../../Assets/vendor/jquery-easing/jquery.easing.min.js"></script>
-
-    <!-- Custom scripts for all pages-->
-    <script src="../../../Assets/js/sb-admin-2.min.js"></script>
-
-    <!-- Get Axios library -->
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-
-    <!-- script  for details -->
-    <script src="../../js/lecturer/details.js"></script>
   </body>
 </html>

@@ -92,13 +92,13 @@ const status = document.getElementById("statusInput");
   validate.min_length(submitForm.CourseLevel, 1, "CourseLevel");
   validate.min_length(submitForm.CourseSemester, 1, "CourseSemester");
 
-//   if(submitForm.CourseLevel === 0){
-//     errDiv.innerHTML = validate.errors[0];
-//     editingForm.prepend(errDiv);
-//     setTimeout(() => {
-//       errDiv.remove();
-//     }, 3000);
-//   }
+  if(submitForm.CourseLevel === 0){
+    errDiv.innerHTML = validate.errors[0];
+    editingForm.prepend(errDiv);
+    setTimeout(() => {
+      errDiv.remove();
+    }, 3000);
+  }
 
 
   // // CHECK FOR ERROR BEFORE PUTING
